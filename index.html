@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherWise | Live Weather Dashboard</title>
+  <meta
+    name="description"
+    content="WeatherWise is a live weather dashboard built with HTML, CSS, and JavaScript using the Open-Meteo API."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__badge">Live API Project</div>
+      <h1>WeatherWise</h1>
+      <p class="hero__text">
+        A modern weather dashboard built with HTML, CSS, and JavaScript.
+        Search for any city to view live current conditions and a real 5-day forecast.
+      </p>
+    </header>
+
+    <main class="dashboard">
+      <section class="panel search-panel">
+        <div class="panel__header">
+          <h2>Search Weather</h2>
+          <p>Enter a city name to get live weather data.</p>
+        </div>
+
+        <form id="weatherForm" class="search-form" novalidate>
+          <label class="sr-only" for="cityInput">Enter city</label>
+          <div class="search-form__row">
+            <input
+              id="cityInput"
+              name="city"
+              type="text"
+              placeholder="Search city (example: Los Angeles)"
+              autocomplete="off"
+              maxlength="60"
+            />
+            <button id="searchBtn" type="submit">Search</button>
+          </div>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+
+        <div class="recent-searches">
+          <div class="recent-searches__top">
+            <h3>Recent Searches</h3>
+            <button id="clearRecentBtn" class="text-btn" type="button">Clear</button>
+          </div>
+          <div id="recentSearchList" class="recent-search-list"></div>
+        </div>
+      </section>
+
+      <section class="panel weather-panel">
+        <div id="emptyState" class="empty-state">
+          <div class="empty-state__icon">🌤️</div>
+          <h2>Ready to check the forecast?</h2>
+          <p>
+            Search for a city to load live weather conditions and a real 5-day forecast.
+          </p>
+        </div>
+
+        <div id="errorCard" class="error-card hidden" role="alert" aria-live="polite">
+          <div class="error-card__icon">⚠️</div>
+          <h2>Weather data unavailable</h2>
+          <p id="errorCardMessage">
+            We could not load weather data right now. Please try another city or try again in a moment.
+          </p>
+          <button id="retryBtn" class="retry-btn" type="button">Try Again</button>
+        </div>
+
+        <div id="weatherContent" class="weather-content hidden">
+          <div class="current-weather">
+            <div class="current-weather__top">
+              <div>
+                <p class="eyebrow">Current Conditions</p>
+                <h2 id="cityName">Los Angeles, United States</h2>
+                <p id="weatherDate" class="weather-date">Monday, April 13</p>
+              </div>
+              <div id="weatherEmoji" class="weather-emoji">☀️</div>
+            </div>
+
+            <div class="current-weather__main">
+              <div class="temperature-group">
+                <span id="temperature" class="temperature">72°</span>
+                <span id="condition" class="condition">Clear sky</span>
+              </div>
+
+              <div class="weather-stats">
+                <div class="stat-card">
+                  <span class="stat-card__label">Feels Like</span>
+                  <strong id="feelsLike">72°</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__label">Humidity</span>
+                  <strong id="humidity">48%</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__label">Wind</span>
+                  <strong id="wind">9 mph</strong>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__label">Precipitation</span>
+                  <strong id="precipitation">0.00 in</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="forecast-section">
+            <div class="section-heading">
+              <h3>5-Day Forecast</h3>
+              <p>Live forecast pulled from Open-Meteo.</p>
+            </div>
+            <div id="forecastGrid" class="forecast-grid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
