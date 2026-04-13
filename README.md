@@ -3,7 +3,7 @@
 WeatherWise is a modern, responsive weather dashboard built with HTML, CSS, and JavaScript. It allows users to search for any city and view real-time weather conditions along with a 5-day forecast using live API data.
 
 ## 🔗 Live Demo
-[View Live Site](https://your-github-pages-link)
+[View Live Site](https://kchamelledesigns.github.io/weather-wise-dashboard/)
 
 ## 🚀 Features
 
