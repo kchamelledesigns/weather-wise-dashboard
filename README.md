@@ -24,12 +24,12 @@ WeatherWise is a modern, responsive weather dashboard built with HTML, CSS, and 
 - Open-Meteo API (no API key required)
 
 ## 📦 Project Structure
-''
+```markdown
 weatherwise/
 ├── index.html
 ├── style.css
 └── script.js
-''
+```
 
 ## ⚙️ How It Works
 
